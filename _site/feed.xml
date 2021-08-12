@@ -1,0 +1,819 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="http://172.17.5.42:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://172.17.5.42:4000/" rel="alternate" type="text/html" /><updated>2018-02-12T03:30:11-05:00</updated><id>http://172.17.5.42:4000/</id><title type="html">Human Technology</title><subtitle>An Open and Sharing Site!</subtitle><author><name>AIMLDL</name></author><entry><title type="html">Quick Connect for Serial and SSH</title><link href="http://172.17.5.42:4000/techpubs/code/QConnect/" rel="alternate" type="text/html" title="Quick Connect for Serial and SSH" /><published>2018-02-07T00:00:00-05:00</published><updated>2018-02-07T00:00:00-05:00</updated><id>http://172.17.5.42:4000/techpubs/code/QConnect</id><content type="html" xml:base="http://172.17.5.42:4000/techpubs/code/QConnect/">&lt;p&gt;To create a simple select menu for quick connect serial devices and SSH Over the NET.&lt;/p&gt;
+
+&lt;h2 id=&quot;bash-shell-scripting&quot;&gt;Bash Shell Scripting&lt;/h2&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;###&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#!/bin/bash&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#Quick Connect for Serial and SSH&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#Arthur: Star Chang&lt;/span&gt;
+
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;********************&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;1). Blade#1 Console &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;2). Blade#2 Console &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;3). Blade#3 Console &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;4). Blade#4 Console &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;5). Blade#5 SSH     &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;6). Blade#6 SSH     &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;7). Blade#7 SSH     &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;8). Blade#8 SSH     &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;********************&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Please select preferred connection:&quot;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;while &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do
+  &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;read &lt;/span&gt;n
+  &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$n&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in
+    &lt;/span&gt;1&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;sudo kill&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-9&lt;/span&gt; 0 &lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;lsof &lt;span class=&quot;nt&quot;&gt;-t&lt;/span&gt; /dev/ttyUSB0&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;
+       cu &lt;span class=&quot;nt&quot;&gt;-l&lt;/span&gt; /dev/ttyUSB0 &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; 115200
+       &lt;span class=&quot;nb&quot;&gt;break&lt;/span&gt;
+       &lt;span class=&quot;p&quot;&gt;;;&lt;/span&gt;
+    2&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;sudo kill&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-9&lt;/span&gt; 0 &lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;lsof &lt;span class=&quot;nt&quot;&gt;-t&lt;/span&gt; /dev/ttyUSB1&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;
+       cu &lt;span class=&quot;nt&quot;&gt;-l&lt;/span&gt; /dev/ttyUSB1 &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; 115200
+       &lt;span class=&quot;nb&quot;&gt;break&lt;/span&gt;
+       &lt;span class=&quot;p&quot;&gt;;;&lt;/span&gt;
+    3&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;sudo kill&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-9&lt;/span&gt; 0 &lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;lsof &lt;span class=&quot;nt&quot;&gt;-t&lt;/span&gt; /dev/ttyUSB2&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;
+       cu &lt;span class=&quot;nt&quot;&gt;-l&lt;/span&gt; /dev/ttyUSB2 &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; 115200
+       &lt;span class=&quot;nb&quot;&gt;break&lt;/span&gt;
+       &lt;span class=&quot;p&quot;&gt;;;&lt;/span&gt;
+    4&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;sudo kill&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-9&lt;/span&gt; 0 &lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;lsof &lt;span class=&quot;nt&quot;&gt;-t&lt;/span&gt; /dev/ttyUSB3&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;
+       cu &lt;span class=&quot;nt&quot;&gt;-l&lt;/span&gt; /dev/ttyUSB3 &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; 115200
+       &lt;span class=&quot;nb&quot;&gt;break&lt;/span&gt;
+       &lt;span class=&quot;p&quot;&gt;;;&lt;/span&gt;
+    5&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; ssh stack@10.10.215.10 &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; 22
+       &lt;span class=&quot;nb&quot;&gt;break&lt;/span&gt;
+       &lt;span class=&quot;p&quot;&gt;;;&lt;/span&gt;
+    6&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; ssh stack@10.10.215.20 &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; 22
+       &lt;span class=&quot;nb&quot;&gt;break&lt;/span&gt;
+       &lt;span class=&quot;p&quot;&gt;;;&lt;/span&gt;
+    7&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; ssh stack@10.10.215.30 &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; 22
+       &lt;span class=&quot;nb&quot;&gt;break&lt;/span&gt;
+       &lt;span class=&quot;p&quot;&gt;;;&lt;/span&gt;
+    8&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; ssh stack@10.10.215.40 &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; 22
+       &lt;span class=&quot;nb&quot;&gt;break&lt;/span&gt;
+       &lt;span class=&quot;p&quot;&gt;;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;invalid connection, select again &amp;gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;;&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;esac&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p class=&quot;notice--info&quot;&gt;&lt;strong&gt;ProTip:&lt;/strong&gt; Sometimes serial port is stuck from last time connection. So kill dead process before new serial connection.&lt;/p&gt;
+
+&lt;h2 id=&quot;python&quot;&gt;Python&lt;/h2&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_menu&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;       &lt;span class=&quot;c&quot;&gt;## Your menu design here&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;-&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;MENU&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;-&quot;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;1). Blade#1 Console&quot;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;2). Blade#2 Console&quot;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;3). Blade#3 Console&quot;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;4). Blade#4 Console&quot;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;5). Blade#5 SSH&quot;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;6). Blade#6 SSH&quot;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;7). Blade#7 SSH&quot;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;8). Blade#8 SSH&quot;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;0). Exit&quot;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;67&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;-&quot;&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;loop&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;loop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;          &lt;span class=&quot;c&quot;&gt;## While loop which will keep going until loop = False&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;print_menu&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;    &lt;span class=&quot;c&quot;&gt;## Displays menu&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;choice&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Enter your choice [1-8]: &quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;choice&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Menu 1 has been selected&quot;&lt;/span&gt;
+        &lt;span class=&quot;c&quot;&gt;## You can add your code or functions here&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;elif&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;choice&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Menu 2 has been selected&quot;&lt;/span&gt;
+        &lt;span class=&quot;c&quot;&gt;## You can add your code or functions here&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;elif&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;choice&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Menu 3 has been selected&quot;&lt;/span&gt;
+        &lt;span class=&quot;c&quot;&gt;## You can add your code or functions here&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;elif&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;choice&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Menu 4 has been selected&quot;&lt;/span&gt;
+        &lt;span class=&quot;c&quot;&gt;## You can add your code or functions here&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;elif&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;choice&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Menu 5 has been selected&quot;&lt;/span&gt;
+        &lt;span class=&quot;c&quot;&gt;## You can add your code or functions here&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;loop&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# This will make the while loop to end as not value of loop is set to False&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;c&quot;&gt;# Any integer inputs other than values 1-5 we print an error message&lt;/span&gt;
+        &lt;span class=&quot;nb&quot;&gt;raw_input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Wrong option selection. Enter any key to try again..&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>AIMLDL</name></author><category term="Programming" /><category term="Bash" /><category term="Python" /><summary type="html">To create a simple select menu for quick connect serial devices and SSH Over the NET.</summary></entry><entry><title type="html">Prerequisites to start Machine Learning</title><link href="http://172.17.5.42:4000/techpubs/ml/Prerequisites4ML/" rel="alternate" type="text/html" title="Prerequisites to start Machine Learning" /><published>2018-02-07T00:00:00-05:00</published><updated>2018-02-07T00:00:00-05:00</updated><id>http://172.17.5.42:4000/techpubs/ml/Prerequisites4ML</id><content type="html" xml:base="http://172.17.5.42:4000/techpubs/ml/Prerequisites4ML/">&lt;h1 id=&quot;prerequisites&quot;&gt;Prerequisites&lt;/h1&gt;
+
+&lt;p&gt;In general, it would be very helpful to speed up your exploration if you have good bases at programming experience, basic linear algebra, statistics and probability to start learning ML.&lt;/p&gt;
+
+&lt;h2 id=&quot;programming-experience&quot;&gt;Programming Experience&lt;/h2&gt;
+
+&lt;p&gt;Machine learning and data analysis are fundamentally iterative processes, in which the data drive the analysis. It is essential for these process to have programs and tools that allow quick iteration and easy interaction.&lt;/p&gt;
+
+&lt;h3 id=&quot;why-python&quot;&gt;Why Python?&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Learning curve to get through Python with the basics &amp;lt; 2 months&lt;/li&gt;
+  &lt;li&gt;Using Python is the ability to interact directly with the code.&lt;/li&gt;
+  &lt;li&gt;Python has libraries for data loading, visualization, statistics, natural language processing, image processing, and more.&lt;/li&gt;
+  &lt;li&gt;It allows for the creation of complex graphical user interfaces (GUIs) and web services, and for integration into existing systems.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;###&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;math-background&quot;&gt;Math Background&lt;/h2&gt;
+
+&lt;p&gt;Having a solid Math background is very important for any starter in ML or AI. One needs to be pretty good in identifying distributions and deal with them.&lt;/p&gt;
+
+&lt;p&gt;Do not panic if you do not have one. Just take the online related courses would be sufficient.&lt;/p&gt;
+
+&lt;h3 id=&quot;basic-linear-algebra&quot;&gt;Basic Linear Algebra&lt;/h3&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;###&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;statistics&quot;&gt;Statistics&lt;/h3&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;###&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;probability&quot;&gt;Probability&lt;/h3&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;###&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p class=&quot;notice--info&quot;&gt;ProTip:** This is ProTip!&lt;/p&gt;</content><author><name>AIMLDL</name></author><category term="ML" /><category term="Programming" /><category term="Linear Algebra" /><category term="Statistics" /><category term="Probability" /><summary type="html">Prerequisites</summary></entry><entry><title type="html">Best Practices for KVM</title><link href="http://172.17.5.42:4000/techpubs/kvm/KVM/" rel="alternate" type="text/html" title="Best Practices for KVM" /><published>2018-02-05T00:00:00-05:00</published><updated>2018-02-05T00:00:00-05:00</updated><id>http://172.17.5.42:4000/techpubs/kvm/KVM</id><content type="html" xml:base="http://172.17.5.42:4000/techpubs/kvm/KVM/">&lt;h1 id=&quot;kvm&quot;&gt;KVM&lt;/h1&gt;
+
+&lt;p&gt;Learn about the best practices for Kernel-based Virtual Machine (KVM), including device virtualization
+for guest operating systems, over-committing processor and memory resources, &lt;em&gt;networking&lt;/em&gt;, and &lt;em&gt;PCIe passthrough&lt;/em&gt; performance.&lt;/p&gt;
+
+&lt;h2 id=&quot;creating-vms-with-virt-install&quot;&gt;Creating VMs with virt-install&lt;/h2&gt;
+
+&lt;p&gt;We need root privileges in order for virt-install commands to complete successfully.&lt;/p&gt;
+
+&lt;p&gt;By default, libvirt stores images in the /var/lib/libvirt/images directory. The root user owns the /var/lib/libvirt/images directory. Therefore, only the root user can create files, delete files, and view a listing of the files in the /var/lib/libvirt/images directory.&lt;/p&gt;
+
+&lt;p&gt;Do not edit qemu.conf to set 'root' - that means a compromise guest can own your entire host.&lt;/p&gt;
+
+&lt;p&gt;Using virt-install with Kickstart files allows for unattended installation of virtual machines.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;###Forcing a vm to stop&lt;/span&gt;
+virsh destroy vm1-centos7
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;using-virt-install-to-install-a-centos-7x-guest-virtual-machine&quot;&gt;Using virt-install to install a CentOS 7.x guest virtual machine&lt;/h3&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;###Create an install shell script  &lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;cat&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; ./vm-centos7-install.sh &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;EOF&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;
+#CentOS 7
+NAME=vm1-centos7
+
+virt-install  \ 
+--name \&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$NAME&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt; \
+--vcpus 1 \
+--memory 1024 \
+--disk path=/var/lib/libvirt/images/\&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$NAME&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;.qcow2,size=8 \
+--os-type linux \
+--os-variant centos7.0  \
+--network bridge=virbr0 \
+--graphics none \
+--console pty,target_type=serial \
+--location 'http://free.nchc.org.tw/centos/7/os/x86_64/' \
+--extra-args 'console=ttyS0,115200n8 serial ks=http://HostIP/centos7-ks.cfg' 
+&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;EOF
+
+&lt;/span&gt;chmod +x vm-centos7-install.sh &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;sudo&lt;/span&gt; ./vm-centos7-install.sh
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;using-virt-install-to-install-a-ubuntu-1604-guest-virtual-machine&quot;&gt;Using virt-install to install a Ubuntu 16.04 guest virtual machine&lt;/h3&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;###Create an install shell script&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;cat&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; ./vm-ubuntu1604-install.sh &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;EOF&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;
+#Ubuntu 16.04
+NAME=vm1-ubuntu1604
+
+virt-install \
+--name \&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$NAME&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt; \
+--vcpus 1 \
+--memory 1024 \
+--disk path=/var/lib/libvirt/images/\&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$NAME&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;.qcow2,size=8 \
+--os-type linux \
+--os-variant ubuntu16.04 \
+--network bridge=virbr0 \
+--graphics none \
+--console pty,target_type=serial \
+--location 'http://free.nchc.org.tw/ubuntu/dists/xenial/main/installer-amd64/' \
+--extra-args 'console=ttyS0,115200n8 serial ks=http://HostIP/ubuntu1604-ks.cfg'
+&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;EOF
+
+&lt;/span&gt;chmod +x vm-ubuntu1604-install.sh &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;sudo&lt;/span&gt; ./vm-ubuntu1604-install.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;using-virt-install-to-install-a-debian-8-guest-virtual-machine&quot;&gt;Using virt-install to install a Debian 8 guest virtual machine&lt;/h3&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;###Create an install shell script&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;cat&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; ./vm-debian8-install.sh &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;EOF&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;
+#Debian 8
+NAME=vm1-debian8
+
+virt-install \
+--name \&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$NAME&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt; \
+--vcpus 1 \
+--memory 1024 \
+--disk path=/var/lib/libvirt/images/\&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$NAME&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;.qcow2,size=8 \
+--os-type linux \
+--os-variant debian8 \
+--network bridge=virbr0 \
+--graphics none \
+--console pty,target_type=serial \
+--location 'http://free.nchc.org.tw/debian/dists/jessie/main/installer-amd64/' \
+--extra-args 'console=ttyS0,115200n8 serial auto=true hostname=localhost domain=localdomain url=http://HostIP/d8-preseed.cfg'
+&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;EOF
+
+&lt;/span&gt;chmod +x vm-debian8-install.sh &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;sudo&lt;/span&gt; ./vm-debian8-install.sh
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;importing-vms-with-virt-install&quot;&gt;Importing VMs with virt-install&lt;/h2&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;###Create an import shell script for an existing image disk &lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;cat&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; ./vm-debian8-import.sh &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;EOF&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;
+#Debian 8
+NAME=vm1-debian8
+
+virt-install \
+--name \&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$NAME&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt; \
+--vcpus 1 \
+--memory 1024 \
+--disk path=/var/lib/libvirt/images/\&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$NAME&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;.qcow2 \
+--graphics none \
+--console pty \
+--import
+&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;EOF
+
+&lt;/span&gt;chmod +x vm-debian8-import.sh &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;sudo&lt;/span&gt; ./vm-debian8-import.sh
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;sr-iov-and-pci-passthrough&quot;&gt;SR-IOV and PCI Passthrough&lt;/h2&gt;
+
+&lt;p&gt;SR-IOV is a virtualization technology that is beneficial for workloads with very high packet rates or very low latency requirements. When using SR-IOV, multiple guest machines can simultaneously and directly access the hardware device on the hypervisor host.&lt;/p&gt;
+
+&lt;p&gt;PCI Passthrough enables exclusive direct access to a physical network card. When compared to SR-IOV, only small performance increases can be gained by using PCI Passthrough.&lt;/p&gt;
+
+&lt;h3 id=&quot;validate-host-virtualization-setup&quot;&gt;Validate host virtualization setup&lt;/h3&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;stack@localhost ~]&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;virt-host-validate
+  QEMU: Checking &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;hardware virtualization                                 : PASS
+  QEMU: Checking &lt;span class=&quot;k&quot;&gt;if &lt;/span&gt;device /dev/kvm exists                                   : PASS
+  QEMU: Checking &lt;span class=&quot;k&quot;&gt;if &lt;/span&gt;device /dev/kvm is accessible                            : PASS
+  QEMU: Checking &lt;span class=&quot;k&quot;&gt;if &lt;/span&gt;device /dev/vhost-net exists                             : PASS
+  QEMU: Checking &lt;span class=&quot;k&quot;&gt;if &lt;/span&gt;device /dev/net/tun exists                               : PASS
+  QEMU: Checking &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;cgroup &lt;span class=&quot;s1&quot;&gt;'memory'&lt;/span&gt; controller support                      : PASS
+  QEMU: Checking &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;cgroup &lt;span class=&quot;s1&quot;&gt;'memory'&lt;/span&gt; controller mount-point                  : PASS
+  QEMU: Checking &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;cgroup &lt;span class=&quot;s1&quot;&gt;'cpu'&lt;/span&gt; controller support                         : PASS
+  QEMU: Checking &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;cgroup &lt;span class=&quot;s1&quot;&gt;'cpu'&lt;/span&gt; controller mount-point                     : PASS
+  QEMU: Checking &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;cgroup &lt;span class=&quot;s1&quot;&gt;'cpuacct'&lt;/span&gt; controller support                     : PASS
+  QEMU: Checking &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;cgroup &lt;span class=&quot;s1&quot;&gt;'cpuacct'&lt;/span&gt; controller mount-point                 : PASS
+  QEMU: Checking &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;cgroup &lt;span class=&quot;s1&quot;&gt;'cpuset'&lt;/span&gt; controller support                      : PASS
+  QEMU: Checking &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;cgroup &lt;span class=&quot;s1&quot;&gt;'cpuset'&lt;/span&gt; controller mount-point                  : PASS
+  QEMU: Checking &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;cgroup &lt;span class=&quot;s1&quot;&gt;'devices'&lt;/span&gt; controller support                     : PASS
+  QEMU: Checking &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;cgroup &lt;span class=&quot;s1&quot;&gt;'devices'&lt;/span&gt; controller mount-point                 : PASS
+  QEMU: Checking &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;cgroup &lt;span class=&quot;s1&quot;&gt;'blkio'&lt;/span&gt; controller support                       : PASS
+  QEMU: Checking &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;cgroup &lt;span class=&quot;s1&quot;&gt;'blkio'&lt;/span&gt; controller mount-point                   : PASS
+  QEMU: Checking &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;device assignment IOMMU support                         : PASS
+  QEMU: Checking &lt;span class=&quot;k&quot;&gt;if &lt;/span&gt;IOMMU is enabled by kernel                               : WARN &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;IOMMU appears to be disabled &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;kernel. Add &lt;span class=&quot;nv&quot;&gt;intel_iommu&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;on to kernel cmdline arguments&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+   LXC: Checking &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;Linux &lt;span class=&quot;o&quot;&gt;&amp;gt;=&lt;/span&gt; 2.6.26                                         : PASS
+   LXC: Checking &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;namespace ipc                                           : PASS
+   LXC: Checking &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;namespace mnt                                           : PASS
+   LXC: Checking &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;namespace pid                                           : PASS
+   LXC: Checking &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;namespace uts                                           : PASS
+   LXC: Checking &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;namespace net                                           : PASS
+   LXC: Checking &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;namespace user                                          : PASS
+   LXC: Checking &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;cgroup &lt;span class=&quot;s1&quot;&gt;'memory'&lt;/span&gt; controller support                      : PASS
+   LXC: Checking &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;cgroup &lt;span class=&quot;s1&quot;&gt;'memory'&lt;/span&gt; controller mount-point                  : PASS
+   LXC: Checking &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;cgroup &lt;span class=&quot;s1&quot;&gt;'cpu'&lt;/span&gt; controller support                         : PASS
+   LXC: Checking &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;cgroup &lt;span class=&quot;s1&quot;&gt;'cpu'&lt;/span&gt; controller mount-point                     : PASS
+   LXC: Checking &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;cgroup &lt;span class=&quot;s1&quot;&gt;'cpuacct'&lt;/span&gt; controller support                     : PASS
+   LXC: Checking &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;cgroup &lt;span class=&quot;s1&quot;&gt;'cpuacct'&lt;/span&gt; controller mount-point                 : PASS
+   LXC: Checking &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;cgroup &lt;span class=&quot;s1&quot;&gt;'cpuset'&lt;/span&gt; controller support                      : PASS
+   LXC: Checking &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;cgroup &lt;span class=&quot;s1&quot;&gt;'cpuset'&lt;/span&gt; controller mount-point                  : PASS
+   LXC: Checking &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;cgroup &lt;span class=&quot;s1&quot;&gt;'devices'&lt;/span&gt; controller support                     : PASS
+   LXC: Checking &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;cgroup &lt;span class=&quot;s1&quot;&gt;'devices'&lt;/span&gt; controller mount-point                 : PASS
+   LXC: Checking &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;cgroup &lt;span class=&quot;s1&quot;&gt;'blkio'&lt;/span&gt; controller support                       : PASS
+   LXC: Checking &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;cgroup &lt;span class=&quot;s1&quot;&gt;'blkio'&lt;/span&gt; controller mount-point                   : PASS
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;enable-iommu-by-kernel&quot;&gt;Enable IOMMU by kernel&lt;/h3&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;###Enable IOMMU support in kernel command through GRUB: *iommu=pt* *intel_iommu=on*&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;sed &lt;span class=&quot;nt&quot;&gt;-i&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'s/GRUB_CMDLINE_LINUX=\&quot;\(.*\)\&quot;/GRUB_CMDLINE_LINUX=\&quot;\1 iommu=pt intel_iommu=on\&quot;/'&lt;/span&gt; /etc/default/grub
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;grub2-mkconfig &lt;span class=&quot;nt&quot;&gt;--output&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/boot/grub2/grub.cfg
+&lt;span class=&quot;c&quot;&gt;###reboot &lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;reboot
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;physical-nic-pci-passthrough&quot;&gt;Physical NIC PCI Passthrough&lt;/h3&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;###--hostdev, A node device name via libvirt, as shown by 'virsh nodedev-list' &lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#[stack@localhost ~]$ sudo lspci | grep -i ethernet&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#04:00.0 Ethernet controller: Emulex Corporation OneConnect NIC (Skyhawk) (rev 10)&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#04:00.1 Ethernet controller: Emulex Corporation OneConnect NIC (Skyhawk) (rev 10)&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#04:00.2 Ethernet controller: Emulex Corporation OneConnect NIC (Skyhawk) (rev 10)&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#04:00.3 Ethernet controller: Emulex Corporation OneConnect NIC (Skyhawk) (rev 10)&lt;/span&gt;
+
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;virsh nodedev-list | &lt;span class=&quot;nb&quot;&gt;grep &lt;/span&gt;pci_0000_04
+pci_0000_04_00_0
+pci_0000_04_00_1
+pci_0000_04_00_2
+pci_0000_04_00_3
+
+&lt;span class=&quot;nt&quot;&gt;--hostdev&lt;/span&gt; pci_0000_04_00_3
+
+ Node Device &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;help &lt;/span&gt;keyword &lt;span class=&quot;s1&quot;&gt;'nodedev'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    nodedev-create                 create a device defined by an XML file on the node
+    nodedev-destroy                destroy &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;stop&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; a device on the node
+    nodedev-detach                 detach node device from its device driver
+    nodedev-dumpxml                node device details &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;XML
+    nodedev-list                   enumerate devices on this host
+    nodedev-reattach               reattach node device to its device driver
+    nodedev-reset                  reset node device
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;###Create an install shell script with one Ethernet NIC passthrough into VM &lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;cat&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; ./vm-centos7-install-pt.sh &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;EOF&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;
+#CentOS 7
+NAME=vm2-centos7
+NIC=\&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;
+
+virt-install \
+--name \&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$NAME&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt; \
+--vcpus 1 \
+--memory 1024 \
+--disk path=/var/lib/libvirt/images/\&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$NAME&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;.qcow2,size=8 \
+--os-type linux \
+--os-variant centos7.0  \
+--network bridge=virbr0 \
+--hostdev \&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$NIC&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt; \
+--graphics none \
+--console pty,target_type=serial \
+--location 'http://free.nchc.org.tw/centos/7/os/x86_64/' \
+--extra-args 'console=ttyS0,115200n8 serial ks=http://HostIP/centos7-ks.cfg' 
+&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;EOF
+
+&lt;/span&gt;chmod +x vm-centos7-install-pt.sh &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;sudo&lt;/span&gt; ./vm-centos7-install-pt.sh pci_0000_04_00_3
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;virtual-networking---libvirt-domain-xml-file-for-vms&quot;&gt;Virtual Networking - libvirt domain xml file for VMs&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://wiki.libvirt.org/page/Networking&quot;&gt;Libvirt Networking&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;virsh net-list &lt;span class=&quot;nt&quot;&gt;--all&lt;/span&gt;
+ Name                 State      Autostart     Persistent
+&lt;span class=&quot;nt&quot;&gt;----------------------------------------------------------&lt;/span&gt;
+ default              active     yes           yes
+
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cat&lt;/span&gt; /usr/share/libvirt/networks/default.xml
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;network&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;name&amp;gt;&lt;/span&gt;default&lt;span class=&quot;nt&quot;&gt;&amp;lt;/name&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;bridge&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;virbr0&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;forward/&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;ip&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;address=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;192.168.122.1&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;netmask=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;255.255.255.0&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;dhcp&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;range&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;start=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;192.168.122.2&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;end=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;192.168.122.254&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dhcp&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/ip&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/network&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;create-a-new-libvirt-network&quot;&gt;Create a new libvirt network&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Create a xml definition file(e.g. internal_intranet.xml) for the intranet network, bridge is named by you.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;network&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;name&amp;gt;&lt;/span&gt;intranet&lt;span class=&quot;nt&quot;&gt;&amp;lt;/name&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;bridge&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;intranet-br0&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;forward/&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;ip&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;address=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;10.0.0.1&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;netmask=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;255.255.255.0&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;dhcp&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;range&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;start=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;192.168.122.2&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;end=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;192.168.122.254&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dhcp&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/ip&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/network&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;ul&gt;
+  &lt;li&gt;Now that the xml file has been created, we can use virsh net-define to define it.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;virsh net-define internal_intranet.xml 
+Network intranet defined from internal_intranet.xml
+&lt;span class=&quot;c&quot;&gt;# virsh net-list --all&lt;/span&gt;
+Name                 State      Autostart
+&lt;span class=&quot;nt&quot;&gt;-----------------------------------------&lt;/span&gt;
+default              active     yes             
+intranet             inactive   no      
+&lt;span class=&quot;c&quot;&gt;# virsh net-start intranet&lt;/span&gt;
+Network intranet started
+
+&lt;span class=&quot;c&quot;&gt;# virsh net-autostart intranet&lt;/span&gt;
+Network intranet marked as autostarted
+
+&lt;span class=&quot;c&quot;&gt;# virsh net-list&lt;/span&gt;
+Name                 State      Autostart
+&lt;span class=&quot;nt&quot;&gt;-----------------------------------------&lt;/span&gt;
+default              active     yes       
+intranet             active     yes      
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;ul&gt;
+  &lt;li&gt;PCI Device SR-IOV Passthrough with proper PCI bus info
+Add a &lt;hostdev&gt; definition to the &lt;devices&gt; section, using bus, slot, and function attribute values identified in lspci command. For example:&lt;/devices&gt;&lt;/hostdev&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;lspci | &lt;span class=&quot;nb&quot;&gt;grep&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-i&lt;/span&gt; ethernet
+06:00.0 Ethernet controller: Intel Corporation I350 Gigabit Network Connection &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;rev 01&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+06:00.1 Ethernet controller: Intel Corporation I350 Gigabit Network Connection &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;rev 01&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+06:00.2 Ethernet controller: Intel Corporation I350 Gigabit Network Connection &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;rev 01&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+06:00.3 Ethernet controller: Intel Corporation I350 Gigabit Network Connection &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;rev 01&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;nt&quot;&gt;&amp;lt;devices&amp;gt;&lt;/span&gt;
+    ...
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;hostdev&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;mode=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'subsystem'&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'pci'&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;managed=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'yes'&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;source&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;address&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;domain=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'0x0000'&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;bus=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'0x06'&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;slot=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'0x00'&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;function=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'0x0'&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/source&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/hostdev&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/devices&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/pre&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p class=&quot;notice--info&quot;&gt;&lt;strong&gt;ProTip:&lt;/strong&gt; MAC address is optional and will be automatically generated if omitted.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;default NAT mode with existing connected network interface&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;nt&quot;&gt;&amp;lt;interface&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'network'&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;mac&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;address=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'52:54:00:f3:79:c0'&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;source&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;network=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'default'&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;model&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'virtio'&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/interface&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;ul&gt;
+  &lt;li&gt;Bridge mode with eno1 physical interface&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;nt&quot;&gt;&amp;lt;interface&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'direct'&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;mac&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;address=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'52:54:00:f3:79:c0'&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;source&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;dev=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'eno1'&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;mode=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'bridge'&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;model&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'virtio'&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/interface&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;ul&gt;
+  &lt;li&gt;Passthrough mode with eno1 physical interface&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;nt&quot;&gt;&amp;lt;interface&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'direct'&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;mac&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;address=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'52:54:00:f3:79:c0'&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;source&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;dev=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'eno1'&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;mode=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'passthrough'&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;model&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'virtio'&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/interface&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;ul&gt;
+  &lt;li&gt;OVS bridge mode with virtio virtual NIC&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;nt&quot;&gt;&amp;lt;interface&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'bridge'&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;source&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;bridge=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'ovsbr0'&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;virtualport&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'openvswitch'&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;model&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'virtio'&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/interface&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;dpdk-and-pktgen&quot;&gt;DPDK and PKTGEN&lt;/h2&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;###CentOS 7&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;yum &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt; install epel-release
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;yum groupinstall &lt;span class=&quot;s2&quot;&gt;&quot;Development Tools&quot;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;yum &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt; install &lt;span class=&quot;s2&quot;&gt;&quot;kernel-devel-uname-r == &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;uname &lt;span class=&quot;nt&quot;&gt;-r&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; libpcap-devel numactl-devel
+
+&lt;span class=&quot;c&quot;&gt;###Download pktgen-dpdk and dpdk Package&lt;/span&gt;
+mkdir &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; workspace/pktgen-dpdk &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;workspace/pktgen-dpdk
+wget http://dpdk.org/browse/apps/pktgen-dpdk/snapshot/pktgen-3.4.9.tar.xz
+wget https://fast.dpdk.org/rel/dpdk-17.11.tar.xz
+&lt;span class=&quot;c&quot;&gt;###Extract sources and Export environment variables &lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;tar&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-Jxvf&lt;/span&gt; pktgen-3.4.9.tar.xz 
+&lt;span class=&quot;nb&quot;&gt;tar&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-Jxvf&lt;/span&gt; dpdk-17.11.tar.xz
+&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;dpdk-17.11
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;RTE_SDK&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;pwd&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;RTE_TARGET&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;x86_64-native-linuxapp-gcc
+&lt;span class=&quot;c&quot;&gt;###Enable pcap (libpcap headers are required)&lt;/span&gt;
+make config &lt;span class=&quot;nv&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;x86_64-native-linuxapp-gcc
+sed &lt;span class=&quot;nt&quot;&gt;-ri&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'s,(PMD_PCAP=).*,\1y,'&lt;/span&gt; build/.config
+&lt;span class=&quot;c&quot;&gt;###Build and Install DPDK&lt;/span&gt;
+make install &lt;span class=&quot;nv&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;x86_64-native-linuxapp-gcc
+......
+......
+&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; Build app/test-eventdev
+  CC evt_main.o
+  CC evt_options.o
+  CC evt_test.o
+  CC parser.o
+  CC test_order_common.o
+  CC test_order_queue.o
+  CC test_order_atq.o
+  CC test_perf_common.o
+  CC test_perf_queue.o
+  CC test_perf_atq.o
+  LD dpdk-test-eventdev
+  INSTALL-APP dpdk-test-eventdev
+  INSTALL-MAP dpdk-test-eventdev.map
+Build &lt;span class=&quot;nb&quot;&gt;complete&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;x86_64-native-linuxapp-gcc]
+Installation cannot run with T defined and DESTDIR undefined
+
+&lt;span class=&quot;c&quot;&gt;###Build pktgen&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ../pktgen-3.4.9
+make
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;ul&gt;
+  &lt;li&gt;00_pktgen-dpdk-setup.sh&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cat&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; 00_pktgen-dpdk-setup.sh  &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;EOF&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;
+#!/bin/bash
+bash -c &quot;echo 1024 &amp;gt; /sys/kernel/mm/hugepages/hugepages-2048kB/nr_hugepages&quot; 
+mkdir /mnt/huge
+mount -t hugetlbfs nodev /mnt/huge
+modprobe uio
+insmod ../dpdk-2.2.0/x86_64-native-linuxapp-gcc/kmod/igb_uio.ko
+../dpdk-2.2.0/tools/dpdk_nic_bind.py -b igb_uio 08:00.0 08:00.1
+&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;EOF
+
+&lt;/span&gt;chmod 755 00_pktgen-dpdk-setup.sh &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;sudo&lt;/span&gt; ./00_pktgen-dpdk-setup.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;ul&gt;
+  &lt;li&gt;01_pktgen-dpdk-run.sh&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cat&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; 01_pktgen-dpdk-run.sh  &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;EOF&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;
+#!/bin/bash
+./app/app/x86_64-native-linuxapp-gcc/app/pktgen -c 0x1f -n 3 --proc-type auto --socket-mem 256 --file-prefix pg -- -p 0x03 -P -m &quot;[1:3].0, [2:4].1&quot; 
+&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;EOF
+
+&lt;/span&gt;chmod 755 01_pktgen-dpdk-run.sh &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;sudo&lt;/span&gt; ./01_pktgen-dpdk-run.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;dpdk-examples&quot;&gt;DPDK Examples&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/DPDK_Examples.jpg&quot; alt=&quot;DPDK_Examples.jpg&quot; /&gt;&lt;/p&gt;</content><author><name>AIMLDL</name></author><category term="Linux" /><summary type="html">KVM</summary></entry><entry><title type="html">Useful Open Source Tools</title><link href="http://172.17.5.42:4000/techpubs/utilities/Tools/" rel="alternate" type="text/html" title="Useful Open Source Tools" /><published>2018-01-23T00:00:00-05:00</published><updated>2018-01-23T00:00:00-05:00</updated><id>http://172.17.5.42:4000/techpubs/utilities/Tools</id><content type="html" xml:base="http://172.17.5.42:4000/techpubs/utilities/Tools/">&lt;table rules=&quot;groups&quot;&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Windows&lt;/th&gt;
+      &lt;th&gt;Descriptions&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://rufus.akeo.ie/&quot; target=&quot;_blank&quot;&gt;Rufus&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;Create bootable USB drives the easy way&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table rules=&quot;groups&quot;&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Linux&lt;/th&gt;
+      &lt;th&gt;Descriptions&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://ai.starlinking.com/&quot; target=&quot;_blank&quot;&gt;ooooo&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;Create bootable USB drives the easy way&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table rules=&quot;groups&quot;&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Mac&lt;/th&gt;
+      &lt;th&gt;Descriptions&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://ai.starlinking.com/&quot; target=&quot;_blank&quot;&gt;ooooo&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;Create bootable USB drives the easy way&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</content><author><name>AIMLDL</name></author><category term="Windows" /><category term="Linux" /><category term="Mac" /><summary type="html">Windows Descriptions Rufus Create bootable USB drives the easy way</summary></entry><entry><title type="html">CentOS/RHEL-based</title><link href="http://172.17.5.42:4000/techpubs/linux/RedHat-Like/" rel="alternate" type="text/html" title="CentOS/RHEL-based" /><published>2017-12-28T00:00:00-05:00</published><updated>2017-12-28T00:00:00-05:00</updated><id>http://172.17.5.42:4000/techpubs/linux/RedHat-Like</id><content type="html" xml:base="http://172.17.5.42:4000/techpubs/linux/RedHat-Like/">&lt;h2 id=&quot;file-systems&quot;&gt;File Systems&lt;/h2&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;###https://goo.gl/vhW1xD&lt;/span&gt;
+/ 
+├── bin   user binaries
+├── boot  boot loader files
+├── dev   device files
+├── etc   configuration files
+├── home  home directories
+├── lib   system libraries
+├── media removable devices
+├── mnt   mount directory
+├── opt   optional add-on apps
+├── proc  process information 
+├── root  home directory of root
+├── run   store runtime information
+├── sbin  system binaries
+├── srv   service data
+├── sys   virtual file system to kernel
+├── tmp   temporary files
+├── usr   user programs
+└── var   variable files
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;###Find the size of a directory&lt;/span&gt;
+du &lt;span class=&quot;nt&quot;&gt;-hs&lt;/span&gt; tensorflow/
+89M     tensorflow/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;package-management&quot;&gt;Package Management&lt;/h2&gt;
+
+&lt;h2 id=&quot;system-configuration&quot;&gt;System Configuration&lt;/h2&gt;
+
+&lt;h2 id=&quot;network-configuration&quot;&gt;Network Configuration&lt;/h2&gt;
+
+&lt;p&gt;network config file path&lt;/p&gt;
+
+&lt;p&gt;/etc/sysconfig/networking-scripts/&lt;/p&gt;
+
+&lt;h2 id=&quot;system-monitoring&quot;&gt;System Monitoring&lt;/h2&gt;
+
+&lt;h2 id=&quot;kernel-and-driver-configuration&quot;&gt;Kernel and Driver Configuration&lt;/h2&gt;
+
+&lt;h2 id=&quot;security-and-authentication&quot;&gt;Security and Authentication&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;分享上述Linux指令，其有助於提升實務上的工作效率。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;</content><author><name>AIMLDL</name></author><category term="CentOS/RHEL-based" /><summary type="html">File Systems</summary></entry><entry><title type="html">Debian-based</title><link href="http://172.17.5.42:4000/techpubs/linux/Debian-Like/" rel="alternate" type="text/html" title="Debian-based" /><published>2017-12-28T00:00:00-05:00</published><updated>2017-12-28T00:00:00-05:00</updated><id>http://172.17.5.42:4000/techpubs/linux/Debian-Like</id><content type="html" xml:base="http://172.17.5.42:4000/techpubs/linux/Debian-Like/">&lt;h2 id=&quot;file-systems&quot;&gt;File Systems&lt;/h2&gt;
+
+&lt;h2 id=&quot;package-management&quot;&gt;Package Management&lt;/h2&gt;
+
+&lt;h2 id=&quot;system-configuration&quot;&gt;System Configuration&lt;/h2&gt;
+
+&lt;h2 id=&quot;network-configuration&quot;&gt;Network Configuration&lt;/h2&gt;
+
+&lt;h2 id=&quot;system-monitoring&quot;&gt;System Monitoring&lt;/h2&gt;
+
+&lt;h2 id=&quot;kernel-and-driver-configuration&quot;&gt;Kernel and Driver Configuration&lt;/h2&gt;
+
+&lt;h2 id=&quot;security-and-authentication&quot;&gt;Security and Authentication&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;分享上述Linux指令，其有助於提升實務上的工作效率。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;</content><author><name>AIMLDL</name></author><category term="Debian-based" /><summary type="html">File Systems</summary></entry><entry><title type="html">Linux Distributions</title><link href="http://172.17.5.42:4000/techpubs/linux/Linux/" rel="alternate" type="text/html" title="Linux Distributions" /><published>2017-12-27T00:00:00-05:00</published><updated>2017-12-27T00:00:00-05:00</updated><id>http://172.17.5.42:4000/techpubs/linux/Linux</id><content type="html" xml:base="http://172.17.5.42:4000/techpubs/linux/Linux/">&lt;h2 id=&quot;centosrhel-based&quot;&gt;CentOS/RHEL-based&lt;/h2&gt;
+
+&lt;table rules=&quot;groups&quot;&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Distribution&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;RHEL&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Red Hat Linux for commercial market&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;CentOS&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;A free, enterprise-class, community-supported distro.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Scientific Linux&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Co-developed by FNAL Lab and CERN Research Group&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;ClearOS&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Small Business Server. File, Print, Messaging, UTM, VPN.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;debian-based&quot;&gt;Debian-based&lt;/h2&gt;
+
+&lt;table rules=&quot;groups&quot;&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Distribution&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Debian&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Unix-like OS for personal computers and network servers&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Ubuntu&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;A consistent user experience and commercial support on both desktops and servers&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://thishosting.rocks/centos-vs-ubuntu-server/&quot; target=&quot;_blank&quot;&gt;CentOS vs Ubuntu: Which one is better for a server&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://thishosting.rocks/wp-content/uploads/2017/01/centos-vs-ubuntu.jpg&quot; alt=&quot;CentOS vs Ubuntu&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;上述表列為個人工作上皆有接觸的Linux Distros。&lt;/li&gt;
+  &lt;li&gt;雖然市面上Linux Distribution何其多，只要掌握CentOS/RHEL-based和Debian-based兩派即可。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;</content><author><name>AIMLDL</name></author><category term="CentOS/RHEL-based" /><category term="Debian-based" /><summary type="html">CentOS/RHEL-based</summary></entry><entry><title type="html">AI Deep Learning Frameworks</title><link href="http://172.17.5.42:4000/techpubs/dl/Frameworks/" rel="alternate" type="text/html" title="AI Deep Learning Frameworks" /><published>2017-12-26T00:00:00-05:00</published><updated>2017-12-26T00:00:00-05:00</updated><id>http://172.17.5.42:4000/techpubs/dl/Frameworks</id><content type="html" xml:base="http://172.17.5.42:4000/techpubs/dl/Frameworks/">&lt;table rules=&quot;groups&quot;&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Framework&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;GitHub Stars (12/26/17)&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Supporter&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;TensorFlow&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;83,495&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;Google&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;CNTK&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;13,451&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;Microsoft&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;MXNET&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;12,531&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;Amazon&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Pytorch&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;10,547&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;Facebook&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Caffe2&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;6,620&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;Facebook&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://towardsdatascience.com/battle-of-the-deep-learning-frameworks-part-i-cff0e3841750&quot; target=&quot;_blank&quot;&gt;Battle of the Deep Learning frameworks in 2017&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn-images-1.medium.com/max/1000/1*dYjDEI0mLpsCOySKUuX1VA.png&quot; alt=&quot;State of open source deep learning frameworks in 2017&quot; /&gt;&lt;/p&gt;
+
+&lt;ul class=&quot;notice--warning&quot;&gt;
+  &lt;li&gt;Theano: MILA團隊終止開發，1.0版本後將不再更新版本。&lt;/li&gt;
+  &lt;li&gt;TensorFlow: 可選擇結合Python或C++程式語言環境各別開發，1.4版新增tf.keras。&lt;/li&gt;
+  &lt;li&gt;CNTK: Microsoft Cognitive Toolkit，最新版本2.3，支援多種開發語言，和Nvidia密切合作。&lt;/li&gt;
+  &lt;li&gt;MXNET: 基於Apache MXNet，Amazon NMT開源框架Sockeye。&lt;/li&gt;
+  &lt;li&gt;Pytorch: PyTorch的其一好處是能讓初學者更深入地瞭解每個演算法中發生原由。Caffe2: Caffe原創賈揚清，2016年2月由Google Brain轉戰Facebook，又一力作。&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>AIMLDL</name></author><category term="AI" /><category term="machine learning" /><category term="deep learning" /><summary type="html">Framework GitHub Stars (12/26/17) Supporter TensorFlow 83,495 Google CNTK 13,451 Microsoft MXNET 12,531 Amazon Pytorch 10,547 Facebook Caffe2 6,620 Facebook</summary></entry><entry><title type="html">Machine Learning Project Checklist</title><link href="http://172.17.5.42:4000/techpubs/ml/MLPC/" rel="alternate" type="text/html" title="Machine Learning Project Checklist" /><published>2017-12-24T00:00:00-05:00</published><updated>2017-12-24T00:00:00-05:00</updated><id>http://172.17.5.42:4000/techpubs/ml/MLPC</id><content type="html" xml:base="http://172.17.5.42:4000/techpubs/ml/MLPC/">&lt;ol&gt;
+  &lt;li&gt;Frame the problem and look at the big picture.&lt;/li&gt;
+  &lt;li&gt;Get the data.&lt;/li&gt;
+  &lt;li&gt;Explore the data to gain insights.&lt;/li&gt;
+  &lt;li&gt;Prepare the data to better expose the underlying data patterns to Machine Learning algorithms.&lt;/li&gt;
+  &lt;li&gt;Explore many different models and short-list the best ones.&lt;/li&gt;
+  &lt;li&gt;Fine-tune your models and combine them into a great slution.&lt;/li&gt;
+  &lt;li&gt;Present your solution.&lt;/li&gt;
+  &lt;li&gt;Launch, monitor, and maintain your system.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr /&gt;
+
+&lt;hr /&gt;</content><author><name>AIMLDL</name></author><category term="AI" /><category term="machine learning" /><category term="deep learning" /><summary type="html">Frame the problem and look at the big picture. Get the data. Explore the data to gain insights. Prepare the data to better expose the underlying data patterns to Machine Learning algorithms. Explore many different models and short-list the best ones. Fine-tune your models and combine them into a great slution. Present your solution. Launch, monitor, and maintain your system.</summary></entry><entry><title type="html">Getting Started</title><link href="http://172.17.5.42:4000/techpubs/ml/Getting_Started/" rel="alternate" type="text/html" title="Getting Started" /><published>2017-12-24T00:00:00-05:00</published><updated>2017-12-24T00:00:00-05:00</updated><id>http://172.17.5.42:4000/techpubs/ml/Getting_Started</id><content type="html" xml:base="http://172.17.5.42:4000/techpubs/ml/Getting_Started/">&lt;ul&gt;
+  &lt;li&gt;Machine Learning: Use data to compute hypothesis g that appromimates target f&lt;/li&gt;
+  &lt;li&gt;Data Mining: Use (huge) data to find property that is interesting&lt;/li&gt;
+  &lt;li&gt;Artificial Intelligence: Compute something that shows intelligent behavior&lt;/li&gt;
+  &lt;li&gt;Statistics: Use data to make inference about an unknown process&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;統計是實現機器學習的一種方法，機器學習則是實現人工智慧的一種方法，
+而機器學習與資料探勘領域則非常密不可分。&lt;/p&gt;
+
+&lt;hr /&gt;</content><author><name>AIMLDL</name></author><category term="AI" /><category term="machine learning" /><category term="deep learning" /><summary type="html">Machine Learning: Use data to compute hypothesis g that appromimates target f Data Mining: Use (huge) data to find property that is interesting Artificial Intelligence: Compute something that shows intelligent behavior Statistics: Use data to make inference about an unknown process</summary></entry></feed>

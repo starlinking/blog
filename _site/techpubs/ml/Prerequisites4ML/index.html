@@ -1,0 +1,666 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.7.1 by Michael Rose
+  Copyright 2017 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE.txt
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin SEO -->
+
+
+
+
+
+
+
+
+
+<title>Prerequisites to start Machine Learning - Human Technology</title>
+
+
+
+
+<meta name="description" content="Prerequisites">
+
+
+
+
+<meta name="author" content="AIMLDL">
+
+<meta property="og:locale" content="en">
+<meta property="og:site_name" content="Human Technology">
+<meta property="og:title" content="Prerequisites to start Machine Learning">
+
+
+  <link rel="canonical" href="http://172.17.5.42:4000/techpubs/ml/Prerequisites4ML/">
+  <meta property="og:url" content="http://172.17.5.42:4000/techpubs/ml/Prerequisites4ML/">
+
+
+
+  <meta property="og:description" content="Prerequisites">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+
+
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2018-02-07T00:00:00-05:00">
+
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "Person",
+      "name" : "AIMLDL",
+      "url" : "http://172.17.5.42:4000",
+      "sameAs" : null
+    }
+  </script>
+
+
+
+
+
+
+
+<!-- end SEO -->
+
+
+<link href="http://172.17.5.42:4000/feed.xml" type="application/atom+xml" rel="alternate" title="Human Technology Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://172.17.5.42:4000/assets/css/main.css">
+
+<!--[if lte IE 9]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use http://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+  </head>
+
+  <body class="layout--single">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    <div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <a class="site-title" href="http://172.17.5.42:4000/">Human Technology</a>
+        <ul class="visible-links">
+          
+            
+            <li class="masthead__menu-item"><a href="http://172.17.5.42:4000/search/">Search</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://172.17.5.42:4000/techpubs/">Techpubs</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://172.17.5.42:4000/about/">About</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://172.17.5.42:4000/resources/">Resources</a></li>
+          
+        </ul>
+        <button type="button">
+          <span class="visually-hidden">Toggle Menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+    
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+<div itemscope itemtype="http://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="http://172.17.5.42:4000/assets/images/ai-logo-2017.jpg" class="author__avatar" alt="AIMLDL" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name" itemprop="name">AIMLDL</h3>
+    
+      <p class="author__bio" itemprop="description">
+        A journey of a thousand miles begins with a single step.
+      </p>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="http://schema.org/Place">
+          <i class="fa fa-fw fa-map-marker" aria-hidden="true"></i> <span itemprop="name">Taipei</span>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+        <li>
+          <a href="https://github.com/starlinking" itemprop="sameAs">
+            <i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs">
+      <i class="fa fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Prerequisites to start Machine Learning">
+    <meta itemprop="description" content="Prerequisites">
+    <meta itemprop="datePublished" content="February 07, 2018">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 class="page__title" itemprop="headline">Prerequisites to start Machine Learning
+</h1>
+          
+            <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+
+
+  less than 1 minute read
+</p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fa fa-file-text"></i> On This Page</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#programming-experience">Programming Experience</a>
+    <ul>
+      <li><a href="#why-python">Why Python?</a></li>
+    </ul>
+  </li>
+  <li><a href="#math-background">Math Background</a>
+    <ul>
+      <li><a href="#basic-linear-algebra">Basic Linear Algebra</a></li>
+      <li><a href="#statistics">Statistics</a></li>
+      <li><a href="#probability">Probability</a></li>
+    </ul>
+  </li>
+</ul>
+            </nav>
+          </aside>
+        
+        <h1 id="prerequisites">Prerequisites</h1>
+
+<p>In general, it would be very helpful to speed up your exploration if you have good bases at programming experience, basic linear algebra, statistics and probability to start learning ML.</p>
+
+<h2 id="programming-experience">Programming Experience</h2>
+
+<p>Machine learning and data analysis are fundamentally iterative processes, in which the data drive the analysis. It is essential for these process to have programs and tools that allow quick iteration and easy interaction.</p>
+
+<h3 id="why-python">Why Python?</h3>
+
+<ul>
+  <li>Learning curve to get through Python with the basics &lt; 2 months</li>
+  <li>Using Python is the ability to interact directly with the code.</li>
+  <li>Python has libraries for data loading, visualization, statistics, natural language processing, image processing, and more.</li>
+  <li>It allows for the creation of complex graphical user interfaces (GUIs) and web services, and for integration into existing systems.</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">###</span>
+
+</code></pre></div></div>
+
+<h2 id="math-background">Math Background</h2>
+
+<p>Having a solid Math background is very important for any starter in ML or AI. One needs to be pretty good in identifying distributions and deal with them.</p>
+
+<p>Do not panic if you do not have one. Just take the online related courses would be sufficient.</p>
+
+<h3 id="basic-linear-algebra">Basic Linear Algebra</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">###</span>
+
+</code></pre></div></div>
+
+<h3 id="statistics">Statistics</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">###</span>
+
+</code></pre></div></div>
+
+<h3 id="probability">Probability</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">###</span>
+
+</code></pre></div></div>
+
+<p class="notice--info">ProTip:** This is ProTip!</p>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fa fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="http://172.17.5.42:4000/tags/#linear-algebra" class="page__taxonomy-item" rel="tag">Linear Algebra</a><span class="sep">, </span>
+    
+      
+      
+      <a href="http://172.17.5.42:4000/tags/#ml" class="page__taxonomy-item" rel="tag">ML</a><span class="sep">, </span>
+    
+      
+      
+      <a href="http://172.17.5.42:4000/tags/#probability" class="page__taxonomy-item" rel="tag">Probability</a><span class="sep">, </span>
+    
+      
+      
+      <a href="http://172.17.5.42:4000/tags/#programming" class="page__taxonomy-item" rel="tag">Programming</a><span class="sep">, </span>
+    
+      
+      
+      <a href="http://172.17.5.42:4000/tags/#statistics" class="page__taxonomy-item" rel="tag">Statistics</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fa fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="http://172.17.5.42:4000/techpubs/#ml" class="page__taxonomy-item" rel="tag">ML</a>
+    
+    </span>
+  </p>
+
+
+        
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2018-02-07T00:00:00-05:00">February 07, 2018</time></p>
+        
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=Prerequisites+to+start+Machine+Learning%20http%3A%2F%2F172.17.5.42%3A4000%2Ftechpubs%2Fml%2FPrerequisites4ML%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2F172.17.5.42%3A4000%2Ftechpubs%2Fml%2FPrerequisites4ML%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://plus.google.com/share?url=http%3A%2F%2F172.17.5.42%3A4000%2Ftechpubs%2Fml%2FPrerequisites4ML%2F" class="btn btn--google-plus" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2F172.17.5.42%3A4000%2Ftechpubs%2Fml%2FPrerequisites4ML%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="http://172.17.5.42:4000/techpubs/kvm/KVM/" class="pagination--pager" title="Best Practices for KVM
+">Previous</a>
+    
+    
+      <a href="http://172.17.5.42:4000/techpubs/code/QConnect/" class="pagination--pager" title="Quick Connect for Serial and SSH
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You May Also Enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://172.17.5.42:4000/techpubs/code/QConnect/" rel="permalink">Quick Connect for Serial and SSH
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+
+
+  2 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">To create a simple select menu for quick connect serial devices and SSH Over the NET.
+
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://172.17.5.42:4000/techpubs/kvm/KVM/" rel="permalink">Best Practices for KVM
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+
+
+  7 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">KVM
+
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://172.17.5.42:4000/techpubs/utilities/Tools/" rel="permalink">Useful Open Source Tools
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+
+
+  less than 1 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+  
+    
+      Windows
+      Descriptions
+    
+  
+  
+    
+      Rufus
+      Create bootable USB drives the easy way
+    
+  
+
+
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://172.17.5.42:4000/techpubs/linux/RedHat-Like/" rel="permalink">CentOS/RHEL-based
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+
+
+  less than 1 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">File Systems
+
+</p>
+  </article>
+</div>
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+<!-- end custom footer snippets -->
+
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+    
+    
+    
+      <li><a href="https://github.com/starlinking"><i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+    
+    
+    
+    <li><a href="http://172.17.5.42:4000/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">Copyright &copy; 2017-2018 Starlinking </div>
+
+      </footer>
+    </div>
+
+    
+  <script src="http://172.17.5.42:4000/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "http://172.17.5.42:4000/techpubs/ml/Prerequisites4ML/";  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = "/techpubs/ml/Prerequisites4ML"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    (function() { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = 'https://aimldl.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+  </body>
+</html>
